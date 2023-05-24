@@ -1,9 +1,5 @@
-# personal
+# Ignore list
 img/*
 .notes.txt
 data/*
-
-# python stuff
-pyvenv.cfg
-lib/
-lib64/
+env/

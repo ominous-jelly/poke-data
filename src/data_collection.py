@@ -67,13 +67,13 @@ def scrape_pokemon_species(json_data):
     return return_data
 
 def scrape_official_artwork(id):
-    if not os.path.exists('./img/'):
-        os.makedirs('./img/')
+    if not os.path.exists('../img/'):
+        os.makedirs('../img/')
     
     filename = str(id) + ".png"
     r = requests.get(IMG_URL + filename)
     if r.status_code == 200:
-        filepath = os.path.join('./img/', filename)
+        filepath = os.path.join('../img/', filename)
         with open(filepath, 'wb') as file:
             file.write(r.content)
             print(f"Image saved as {filepath}")
@@ -131,10 +131,13 @@ def add_to_dict(id):
 # Running everything
 
 df = pd.DataFrame()
+
 def create_data_frame(start, stop):
+    if not os.path.exists('../data/'):
+        os.makedirs('../data/')
     for i in range(start, stop + 1):
         add_to_dict(i)
         print(data['name'][-1] + " added successfully")
-        pd.DataFrame(data).to_csv('data/pokemon.csv', sep=",", index=False)
+        pd.DataFrame(data).to_csv('../data/pokemon.csv', sep=",", index=False)
 
-create_data_frame(1, 9)
+create_data_frame(1, 905)

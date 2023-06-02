@@ -77,7 +77,6 @@ if result['is_legendary'] == False:
 else:
     classification = "Legendary"
 
-# Creating the tables for output
 # Creating the rich tables to hold data
 main_table = Table(box=box.ROUNDED, title="[bold]Pokedex Data", width=60, border_style=display_style)
 species_table = Table(box=box.ROUNDED, title="[bold]Species Data", border_style=display_style if pd.isna(result['type_2']) else secondary_style)
@@ -129,6 +128,7 @@ os.system('clear')
 console.print(image_panel)
 input("Press Enter to Continue...")
 os.system('clear')
+os.remove('./ascii_image.txt')
 console.print("\n\n")
 console.print(main_table, justify='center')
 console.print("\n", dex, "\n")

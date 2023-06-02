@@ -1,0 +1,4 @@
+Known Issues
+
+1. If evolutionary lines are out of order by index, they will appear out of order on display.
+2. Error handling for when an inproper input is entered.
